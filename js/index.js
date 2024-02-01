@@ -4,9 +4,9 @@ var longitude;
 var latitude;
 
 var optionObj = {
-	"enableHighAccuracy": ture ,
+	"enableHighAccuracy": false ,
 	"timeout": 8000 ,
-	"maximumAge": 5000 ,
+	"maximumAge": Number.MAX_VALUE ,
 } ;
 
 function jsToGas(){
@@ -14,12 +14,12 @@ function jsToGas(){
 }
 
 function successFunc(position){
-    textArea = document.getElementById("commentArea").ariaValueText;
+    textArea = document.getElementById("commentArea").value;
     nowDate = new Date(position.timestamp);
-    longitude = position.coords.longitude;
     latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
     
-    alert(textArea + "\n" + nowDate + "\n" + longitude + "\n" + latitude);
+    alert(textArea + "\n" + nowDate + "\n" + latitude + "\n" + longitude);
 }
 
 function errorFunc(error){
