@@ -4,7 +4,7 @@ var longitude;
 var latitude;
 
 var optionObj = {
-	"enableHighAccuracy": false ,
+	"enableHighAccuracy": true ,
 	"timeout": 8000 ,
 	"maximumAge": 0 ,
 } ;
