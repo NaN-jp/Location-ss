@@ -6,7 +6,7 @@ var latitude;
 var optionObj = {
 	"enableHighAccuracy": false ,
 	"timeout": 8000 ,
-	"maximumAge": Number.MAX_VALUE ,
+	"maximumAge": 0 ,
 } ;
 
 function jsToGas(){
