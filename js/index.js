@@ -9,17 +9,18 @@ var optionObj = {
 	"maximumAge": 0 ,
 } ;
 
-function jsToGas(){
+function exportCsv(){
     navigator.geolocation.getCurrentPosition(successFunc, errorFunc, optionObj);
 }
 
 function successFunc(position){
+    var csv = new XMLHttpRequest().open("GET", "data.csv", false);
     textArea = document.getElementById("commentArea").value;
-    nowDate = new Date(position.timestamp);
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
     
-    alert(textArea + "\n" + nowDate + "\n" + latitude + "\n" + longitude);
+    var csvStr = longitude + "," + latitude + "," + textArea + "\n";
+    
 }
 
 function errorFunc(error){
@@ -31,3 +32,4 @@ function errorFunc(error){
 	};
     alert(errorMessage[error.code] ) ;
 }
+
