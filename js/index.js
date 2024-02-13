@@ -3,7 +3,7 @@ let textArea;
 let longitude;
 let latitude;
 
-const { callTs } = require('../ts/dataInsert');
+const callTs = require('../ts/dataInsert');
 
 const optionObj = {
 	"enableHighAccuracy": true ,
