@@ -3,8 +3,6 @@ let textArea;
 let longitude;
 let latitude;
 
-const callTs = require('../ts/dataInsert');
-
 const optionObj = {
 	"enableHighAccuracy": true ,
 	"timeout": 8000 ,
@@ -18,27 +16,26 @@ const errorMessage = {
     3: "位置情報の取得に時間がかかり過ぎてタイムアウトしました…。" ,
 };
 
+const { callTs } = require("./dataInsert");
+
 function saveMysql(){
     navigator.geolocation.getCurrentPosition(successFunc, errorFunc, optionObj);
 }
 
 function successFunc(position){
-    //チーム
+    //Team
     team = document.getElementById("team").value;
-    //コメント
+    //Comment
     textArea = document.getElementById("commentArea").value;
     //緯度
     latitude = position.coords.latitude;
     //経度
     longitude = position.coords.longitude;
-    //TSを呼び出す
-    if(!!team || !!textArea){
-        callTs(team, textArea, latitude, longitude);
-    }else{
-        return;
-    }
+    
+    callTs(team, textArea, latitude, longitude);
 }
 
 function errorFunc(error){
     alert(errorMessage[error.code] ) ;
 }
+

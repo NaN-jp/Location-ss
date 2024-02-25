@@ -1,13 +1,11 @@
 import * as mysql from 'mysql';
 
-const config = require("../js/config");
-
 // MySQLデータベースへの接続情報
 const connection : mysql.Connection = mysql.createConnection({
-  host: config.host,
-  user: config.user,
-  password: config.pass,
-  database: config.db
+  host: 'localhost',
+  user: 'root',
+  password: 'diversmap',
+  database: 'divers'
 });
 
 let insertData : any;
